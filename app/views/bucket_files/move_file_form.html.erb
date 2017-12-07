@@ -1,0 +1,23 @@
+<div id="page-wrapper">
+   <div class="row">
+    <!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <b>File to move </b><%= @file_name %></br>
+							<b>From bucket </b><%= @bucket_name %></br>
+                        </div>
+                        <%= form_for :file_move_path do |f| %>
+                        <div class="panel-body">
+                            Select Disk: <%= f.select("to_bucket", @user_disk.all.collect {|p| [ p.name, p.name ] }, { include_blank: true }) %>
+  							<% f.hidden_field :file_name, value: @file_name %>
+  							<% f.hidden_field :from_bucket_name, value: @bucket_name %></br></br>
+                        </div>
+                        <div class="panel-footer">
+                            <%= f.submit "Move", class: "btn btn-success"%>
+                        </div>
+                        <% end %>
+                    </div>
+    </div>
+  </div>
+</div>

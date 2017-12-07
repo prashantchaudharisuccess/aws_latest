@@ -1,0 +1,27 @@
+<%= form_with(model: disk, local: true) do |form| %>
+  <% if disk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(disk.errors.count, "error") %> prohibited this disk from being saved:</h2>
+
+      <ul>
+      <% disk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%#= form.file_field :attachment, id: :disk_attachment %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :discription %>
+    <%= form.text_field :discription %>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

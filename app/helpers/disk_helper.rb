@@ -1,0 +1,2 @@
+module DiskHelper
+end
